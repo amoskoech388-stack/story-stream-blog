@@ -166,24 +166,30 @@ export default function PostDetail() {
   return (
     <div className="min-h-screen bg-background">
       <Helmet>
-        <title>{post.title} | NewsHub</title>
+        <title>{post.title} | BreakingNewsDaily</title>
         <meta name="description" content={post.content.substring(0, 160)} />
         <link rel="canonical" href={postUrl} />
-        
+
         <meta property="og:title" content={post.title} />
-        <meta property="og:description" content={post.content.substring(0, 160)} />
+        <meta
+          property="og:description"
+          content={post.content.substring(0, 160)}
+        />
         <meta property="og:image" content={imageUrl} />
         <meta property="og:url" content={postUrl} />
         <meta property="og:type" content="article" />
-        
+
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={post.title} />
-        <meta name="twitter:description" content={post.content.substring(0, 160)} />
+        <meta
+          name="twitter:description"
+          content={post.content.substring(0, 160)}
+        />
         <meta name="twitter:image" content={imageUrl} />
       </Helmet>
 
       <Navbar user={user} isAdmin={isAdmin} />
-      
+
       <article className="container mx-auto px-4 py-8 max-w-4xl">
         {post.featured_image_url && (
           <div className="aspect-video overflow-hidden rounded-lg mb-8">
@@ -197,16 +203,22 @@ export default function PostDetail() {
 
         <header className="mb-8">
           <h1 className="text-4xl font-bold mb-4">{post.title}</h1>
-          
+
           <div className="flex items-center justify-between flex-wrap gap-4 text-muted-foreground mb-4">
             <div>
               By {post.profiles.full_name || post.profiles.email} •{" "}
-              {formatDistanceToNow(new Date(post.created_at), { addSuffix: true })}
+              {formatDistanceToNow(new Date(post.created_at), {
+                addSuffix: true,
+              })}
             </div>
-            
+
             {canEdit && (
               <div className="flex gap-2">
-                <Button variant="outline" size="sm" onClick={() => navigate(`/edit/${post.slug}`)}>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => navigate(`/edit/${post.slug}`)}
+                >
                   <Edit className="h-4 w-4 mr-2" />
                   Edit
                 </Button>
