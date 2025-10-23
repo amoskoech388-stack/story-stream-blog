@@ -13,6 +13,12 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        'circular': ['Circular', 'system-ui', 'sans-serif'],
+        'product': ['Product Sans', 'system-ui', 'sans-serif'],
+        'sf-pro': ['SF Pro Display', 'system-ui', 'sans-serif'],
+        'sans': ['Circular', 'system-ui', 'sans-serif'],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
